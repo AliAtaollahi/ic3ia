@@ -133,50 +133,115 @@ Refiner::~Refiner()
 
 bool Refiner::refine(const std::vector<TermList> &cex)
 {
-    // reset the interpolating solver
+    // -----------------------------------------------------------------
+    // High-level info about the abstract counterexample
+    // -----------------------------------------------------------------
+    logger(1) << "[refine] abstract_path length = " << cex.size() << endlog;
+    for (size_t k = 0; k < cex.size(); ++k) {
+        logger(1) << "[refine]   cube[" << k << "] size = "
+                  << cex[k].size() << endlog;
+        for (size_t j = 0; j < cex[k].size(); ++j) {
+            logger(1) << "[refine]     lit[" << j << "] in cube[" << k << "] = "
+                      << logterm(solver_, cex[k][j]) << endlog;
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // Reset the interpolating solver
+    // -----------------------------------------------------------------
     msat_reset_env(solver_);
     preds_.clear();
     groups_.clear();
-    group_desc_.clear(); // <-- DEBUG: clear saved descriptions
+    group_desc_.clear(); // DEBUG: clear saved descriptions
 
     if (!MSAT_ERROR_ENV(model_solver_)) {
         msat_destroy_env(model_solver_);
         model_solver_ = { nullptr };
     }
 
-    // create the interpolation groups
+    // Create the interpolation groups, one for each step of the path
     for (size_t k = groups_.size(); k < cex.size(); ++k) {
         groups_.push_back(msat_create_itp_group(solver_));
     }
 
-    logger(3) << "entering abstraction refinement" << endlog;
+    logger(1) << "entering abstraction refinement" << endlog;
 
-    // generate the BMC problem for the input abstract counterexample trace,
-    // putting each step in a different interpolation group
+    // -----------------------------------------------------------------
+    // Generate the BMC problem for the abstract counterexample trace,
+    // putting each step in a different interpolation group.
+    // This is where the "abstract state i: ..." come from.
+    // -----------------------------------------------------------------
     msat_result res = MSAT_UNKNOWN;
+
     for (size_t k = 0; k < cex.size(); ++k) {
         msat_set_itp_group(solver_, groups_[k]);
+
+        logger(1) << "[refine] ----- building step " << k << " -----" << endlog;
+
+        // S@k: conjunction of literals in cube[k] (UNTIMED)
         msat_term s = make_and(solver_, cex[k]);
+        logger(1) << "[refine]   S@" << k << " (untimed) = "
+                  << logterm(solver_, s) << endlog;
+
+        // S@k after time-stamping all state variables to step k
         msat_term formula = un_.at_time(s, k);
+        logger(1) << "[refine]   S@" << k << " (timed)   = "
+                  << logterm(solver_, formula) << endlog;
+
+        // First time we conjoin the transition relation T@k (as in the
+        // original implementation)
         if (k != cex.size()-1) {
-            formula = msat_make_and(solver_, formula,
-                                    un_.at_time(ts_.trans(), k));
+            msat_term trk1 = un_.at_time(ts_.trans(), k);
+            logger(1) << "[refine]   T@" << k
+                      << " (for formula, 1st time) = "
+                      << logterm(solver_, trk1) << endlog;
+            formula = msat_make_and(solver_, formula, trk1);
+            logger(1) << "[refine]   S@" << k << " ∧ T@" << k
+                      << " (after 1st conjoin) = "
+                      << logterm(solver_, formula) << endlog;
+        } else {
+            logger(1) << "[refine]   last step " << k
+                      << " has no transition (only S@" << k << ")" << endlog;
         }
 
         // ---- DEBUG: build a readable description for this group ----
         std::ostringstream gdbg;
-        gdbg << "group " << k << ": S@" << k << " = " << logterm(solver_, s);
+        gdbg << "group " << k << ": S@" << k << " = "
+             << logterm(solver_, s);
+
         if (k != cex.size()-1) {
-            msat_term trk = un_.at_time(ts_.trans(), k);
-            gdbg << "  |  T@" << k << " = " << logterm(solver_, trk);
-            formula = msat_make_and(solver_, formula, trk);
+            // Second time we conjoin the same T@k, exactly as in the
+            // current code. This does not change the logic
+            // (T@k ∧ T@k), but we keep it for strict faithfulness.
+            msat_term trk2 = un_.at_time(ts_.trans(), k);
+            logger(1) << "[refine]   T@" << k
+                      << " (for group_desc, 2nd time) = "
+                      << logterm(solver_, trk2) << endlog;
+
+            gdbg << " | T@" << k << " = " << logterm(solver_, trk2);
+
+            formula = msat_make_and(solver_, formula, trk2);
+            logger(1) << "[refine]   S@" << k << " ∧ T@" << k
+                      << " (after 2nd conjoin) = "
+                      << logterm(solver_, formula) << endlog;
         }
+
         group_desc_.push_back(gdbg.str());
         // ------------------------------------------------------------
 
-        msat_assert_formula(solver_, simplify(formula, k));
-        logger(3) << "abstract state " << k << ": " << logterm(solver_, s)
-                  << endlog;
+        // Simplify, protecting the S@k and S@(k+1) variables
+        msat_term simplified = simplify(formula, k);
+        logger(1) << "[refine]   group[" << k
+                  << "] simplified formula = "
+                  << logterm(solver_, simplified) << endlog;
+
+        msat_assert_formula(solver_, simplified);
+
+        // This is the line you already know from the original code: it
+        // prints the abstract state as a conjunction of the cube literals.
+        logger(1) << "abstract state " << k << ": "
+                  << logterm(solver_, s) << endlog;
+
         if (incref_) {
             res = msat_solve(solver_);
             if (res == MSAT_UNSAT) {
@@ -184,14 +249,18 @@ bool Refiner::refine(const std::vector<TermList> &cex)
             }
         }
     }
-    // check whether the counterexample is concrete
+
+    // -----------------------------------------------------------------
+    // Check whether the counterexample is concrete
+    // -----------------------------------------------------------------
     if (res != MSAT_UNSAT) {
         res = msat_solve(solver_);
     }
 
     if (res == MSAT_UNSAT) {
-        logger(3) << "counterexample is spurious, extracting interpolants"
+        logger(1) << "counterexample is spurious, extracting interpolants"
                   << endlog;
+
         // compute a sequence interpolant for the spurious cex trace, and
         // extract the atomic predicates occurring in each element of the
         // sequence (after proper untiming -- see Unroller::untime())
@@ -200,9 +269,9 @@ bool Refiner::refine(const std::vector<TermList> &cex)
             minimize_predicates(cex);
         }
     } else if (res == MSAT_SAT && confirm_counterexample(cex)) {
-        logger(3) << "counterexample is real" << endlog;
+        logger(1) << "counterexample is real" << endlog;
     } else {
-        logger(3) << "counterexample is spurious, "
+        logger(1) << "counterexample is spurious, "
                   << "but refinement fails" << endlog;
         res = MSAT_UNSAT;
     }
@@ -213,13 +282,24 @@ bool Refiner::refine(const std::vector<TermList> &cex)
 
 msat_term Refiner::simplify(msat_term formula, size_t k)
 {
+    // DEBUG: show formula before simplification
+    logger(4) << "[simplify] k = " << k
+              << "  input: " << logterm(solver_, formula) << endlog;
+
     to_protect_.clear();
     for (auto v : ts_.statevars()) {
         to_protect_.push_back(un_.at_time(v, k));
         to_protect_.push_back(un_.at_time(v, k+1));
     }
-    return msat_simplify(solver_, formula,
-                         &(to_protect_[0]), to_protect_.size());
+
+    msat_term res =
+        msat_simplify(solver_, formula, &(to_protect_[0]), to_protect_.size());
+
+    // DEBUG: show formula after simplification
+    logger(4) << "[simplify] k = " << k
+              << "  output: " << logterm(solver_, res) << endlog;
+
+    return res;
 }
 
 
@@ -227,30 +307,58 @@ void Refiner::extract_predicates(msat_env env)
 {
     preds_.clear();
 
+    logger(3) << "[extract_predicates] #groups = " << groups_.size()
+              << endlog;
+
     for (size_t i = 1; i < groups_.size(); ++i) {
+        logger(3) << "[extract_predicates] computing interpolant I_" << i
+                  << endlog;
+
         // ---- DEBUG: show the exact clauses used for I_i ----
         logger(3) << "I_" << i
                   << " A-prefix uses groups [0.." << (i-1) << "]" << endlog;
         for (size_t g = 0; g < i; ++g) {
-            logger(3) << "  " << group_desc_[g] << endlog;
+            logger(3) << "  group " << g << ": "
+                      << group_desc_[g] << endlog;
         }
+
         logger(3) << "I_" << i
                   << " B-suffix uses groups [" << i << ".."
                   << (groups_.size()-1) << "]" << endlog;
         for (size_t g = i; g < groups_.size(); ++g) {
-            logger(3) << "  " << group_desc_[g] << endlog;
+            logger(3) << "  group " << g << ": "
+                      << group_desc_[g] << endlog;
         }
         // -----------------------------------------------------
+
+        // groups_[0..i-1] form the A-part, the rest form the B-part
         msat_term t = msat_get_interpolant(env, &groups_[0], i);
         if (!MSAT_ERROR_TERM(t)) {
-            logger(3) << "got interpolant " << i << ": " << logterm(env, t)
+            logger(3) << "got interpolant " << i
+                      << " (timed): " << logterm(env, t) << endlog;
+
+            // Untime I_i back to the original TS environment
+            msat_term unt = un_.untime(t);
+            logger(3) << "untimed interpolant " << i << ": "
+                      << logterm(env, unt) << endlog;
+
+            // Count how many predicates come from this interpolant
+            size_t before = preds_.size();
+            get_predicates(env, unt, preds_, opts_.abs_bool_vars);
+            size_t after = preds_.size();
+
+            logger(3) << "[extract_predicates] I_" << i
+                      << " contributed " << (after - before)
+                      << " new predicates, total now " << after
                       << endlog;
-            get_predicates(env, un_.untime(t), preds_, opts_.abs_bool_vars);
         } else {
-            logger(2) << "interpolation failure: "
+            logger(2) << "interpolation failure for I_" << i << ": "
                       << msat_last_error_message(env) << endlog;
         }
     }
+
+    logger(3) << "[extract_predicates] total predicates collected = "
+              << preds_.size() << endlog;
 }
 
 

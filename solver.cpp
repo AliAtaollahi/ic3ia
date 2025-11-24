@@ -137,7 +137,7 @@ bool Solver::check()
 {
     uc_.clear();
 
-    // ---- DEBUG: log everything passed to msat_solve_with_assumptions ----
+    // // ---- DEBUG: log everything passed to msat_solve_with_assumptions ----
     {
         logger(2) << "[solve] msat_solve_with_assumptions BEGIN" << endlog;
 

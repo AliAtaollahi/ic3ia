@@ -799,7 +799,7 @@ bool IC3::block(const Cube &c, unsigned int idx, Cube *out, bool compute_cti)
     logger(3) << "[block.pre] asserted ~c clause: "
               << clause_of_negated_cube(ts_.get_env(), c) << endlog;
 
-    // Frames / names
+    // // Frames / names
     logger(4) << "[block.pre] frames:" << endlog;
     for (size_t k = 0; k < frame_labels_.size(); ++k) {
         bool neg = (k < (idx - 1));
@@ -842,7 +842,7 @@ bool IC3::block(const Cube &c, unsigned int idx, Cube *out, bool compute_cti)
                 if (core.find(primed[i]) != core.end()) candidate.push_back(c[i]);
                 else                                     rest.push_back(c[i]);
             }
-
+            
             logger(2) << "[block] candidate BEFORE ensure_not_initial (|cand|="
                       << candidate.size() << "): ";
             logcube(2, candidate); logger(2) << endlog;

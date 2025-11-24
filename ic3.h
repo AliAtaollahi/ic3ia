@@ -158,13 +158,13 @@ private:
             if (idx != other.idx)
                 return idx < other.idx;
             
-            if (cube.size() != other.cube.size())
-                return cube.size() < other.cube.size();
+            // if (cube.size() != other.cube.size())
+            //     return cube.size() < other.cube.size();
             
-            size_t chain_len_this = chain_len(this);
-            size_t chain_len_other = chain_len(&other);
-            if (chain_len_this != chain_len_other)
-                return chain_len_this < chain_len_other;
+            // size_t chain_len_this = chain_len(this);
+            // size_t chain_len_other = chain_len(&other);
+            // if (chain_len_this != chain_len_other)
+            //     return chain_len_this < chain_len_other;
 
 
             return false;
