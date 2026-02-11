@@ -81,18 +81,18 @@ int main(int argc, const char **argv)
         bool is_moxi_json = (!opts.filename.empty() &&
                              (ends_with(opts.filename, ".moxi.json") ||
                               ends_with(opts.filename, ".moxi-json") ||
-                              ends_with(opts.filename, ".moxijson")));
+                              ends_with(opts.filename, ".moxijson") ||
+                              ends_with(opts.filename, ".json")));
 
         if (opts.filename.empty()) {
             f.file = stdin;
         } else if (!is_moxi_json) {
             f.file = fopen(opts.filename.c_str(), "r");
         } else {
-            // MoXI-JSON: convert to SMT-LIB2 annotated list (VMT-style), then parse with MathSAT
             std::string smt2;
-            std::string err;
-            if (!moxi_json_to_vmt_smt2(opts.filename, smt2, &err)) {
-                std::cout << "ERROR reading MoXI-JSON input: " << err << std::endl;
+            std::string conv_err;
+            if (!moxi_json_to_vmt_smt2(opts.filename, smt2, &conv_err)) {
+                std::cout << "ERROR reading MoXI-JSON input: " << conv_err << std::endl;
                 return 1;
             }
             f.file = tmpfile();
@@ -101,8 +101,7 @@ int main(int argc, const char **argv)
                 return 1;
             }
             if (!smt2.empty()) {
-                size_t wrote = fwrite(smt2.data(), 1, smt2.size(), f.file);
-                (void)wrote;
+                fwrite(smt2.data(), 1, smt2.size(), f.file);
             }
             rewind(f.file);
         }

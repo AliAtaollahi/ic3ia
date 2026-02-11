@@ -1,12 +1,12 @@
 #include "moxi_json_loader.h"
 
 #include <cctype>
-#include <cerrno>
 #include <fstream>
 #include <map>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <utility>
 #include <vector>
 
 namespace ic3ia {
@@ -98,6 +98,14 @@ private:
         }
     }
 
+    bool starts_with(const char *lit) const {
+        size_t n = 0;
+        while (lit[n]) ++n;
+        if (i + n > s.size()) return false;
+        for (size_t k = 0; k < n; ++k) if (s[i+k] != lit[k]) return false;
+        return true;
+    }
+
     JVal parse_val() {
         skip_ws();
         char c = peek();
@@ -109,14 +117,6 @@ private:
         if (starts_with("false")) { i += 5; return JVal::make_bool(false); }
         if (starts_with("null")) { i += 4; return JVal::make_null(); }
         throw std::runtime_error("JSON parse error: invalid value");
-    }
-
-    bool starts_with(const char *lit) const {
-        size_t n = 0;
-        while (lit[n]) ++n;
-        if (i + n > s.size()) return false;
-        for (size_t k = 0; k < n; ++k) if (s[i+k] != lit[k]) return false;
-        return true;
     }
 
     std::string parse_str() {
@@ -138,7 +138,6 @@ private:
                     case 'r': out.push_back('\r'); break;
                     case 't': out.push_back('\t'); break;
                     case 'u': {
-                        // Minimal \uXXXX handling (ASCII subset only)
                         if (i + 4 > s.size()) throw std::runtime_error("JSON parse error: bad \\u escape");
                         int code = 0;
                         for (int k = 0; k < 4; ++k) {
@@ -150,7 +149,7 @@ private:
                             else throw std::runtime_error("JSON parse error: bad hex in \\u escape");
                         }
                         if (code >= 0 && code <= 0x7F) out.push_back(static_cast<char>(code));
-                        else out.push_back('?'); // keep it simple
+                        else out.push_back('?');
                         break;
                     }
                     default:
@@ -234,17 +233,18 @@ static std::string read_all(const std::string &path) {
 // MoXI-JSON -> SMT-LIB2 (VMT annotated list)
 // -----------------------------
 struct VarInfo {
-    std::string name;      // e.g., "a"
-    std::string next_name; // e.g., "a.next"
-    std::string sort;      // SMT-LIB2 sort string
+    std::string name;
+    std::string next_name; // valid only if is_state=true
+    std::string sort;
+    bool is_state = false; // outputs+locals=true, inputs=false
 };
 
 static bool is_simple_smt_ident_char(char c) {
-    return std::isalnum(static_cast<unsigned char>(c)) || c == '_' || c == '.' || c == '$' || c == '-' || c == '@';
+    return std::isalnum(static_cast<unsigned char>(c)) ||
+           c == '_' || c == '.' || c == '$' || c == '-' || c == '@';
 }
+
 static std::string smt_ident(const std::string &raw) {
-    // For typical MoXI variable names this returns raw unchanged.
-    // If needed, quote with |...| for safety.
     if (raw.empty()) return "||";
     for (char c : raw) {
         if (!is_simple_smt_ident_char(c)) {
@@ -263,7 +263,6 @@ static std::string smt_ident(const std::string &raw) {
 static std::string sort_to_smt2(const JVal &sort_node);
 
 static std::string sort_to_smt2(const JVal &sort_node) {
-    // sort_node format: { "identifier": { "symbol": "...", "indices": [...] }, "parameters": [...] }
     const JVal &id = sort_node.get("identifier");
     std::string sym = id.get("symbol").as_str();
     const std::vector<JVal> *params = nullptr;
@@ -272,7 +271,6 @@ static std::string sort_to_smt2(const JVal &sort_node) {
     if (sym == "Bool" || sym == "Int" || sym == "Real") return sym;
 
     if (sym == "BitVec") {
-        // SMT-LIB2: (_ BitVec N)
         const auto &idx = id.get("indices").as_arr();
         if (idx.empty()) throw std::runtime_error("BitVec sort missing size index");
         long long n = idx[0].as_int();
@@ -288,7 +286,6 @@ static std::string sort_to_smt2(const JVal &sort_node) {
         return oss.str();
     }
 
-    // Fallback: uninterpreted sort symbol
     return smt_ident(sym);
 }
 
@@ -308,13 +305,35 @@ static const JVal& find_define_system(const std::vector<JVal> &cmds, const std::
     throw std::runtime_error("MoXI-JSON: define-system not found for symbol: " + sym);
 }
 
-static std::string term_to_smt2(const JVal &term,
-                                const std::map<std::string, VarInfo> &vars,
-                                bool prime_all,
-                                std::map<std::string, std::string> let_bindings);
+static std::map<std::string, VarInfo> collect_vars(const JVal &def_sys_cmd)
+{
+    std::map<std::string, VarInfo> out;
+
+    auto add_list = [&](const char *field, bool is_state) {
+        if (!def_sys_cmd.has(field)) return;
+        const auto &lst = def_sys_cmd.get(field).as_arr();
+        for (const auto &v : lst) {
+            std::string name = v.get("symbol").as_str();
+            std::string sort = sort_to_smt2(v.get("sort"));
+
+            VarInfo info;
+            info.name = name;
+            info.sort = sort;
+            info.is_state = is_state;
+            if (is_state) info.next_name = name + ".next";
+            out[name] = info;
+        }
+    };
+
+    // Inputs declared, but not state vars
+    add_list("input",  false);
+    add_list("output", true);
+    add_list("local",  true);
+
+    return out;
+}
 
 static std::string mk_app(const std::string &op, const std::vector<std::string> &args) {
-    if (args.empty()) return "(" + op + ")";
     std::ostringstream oss;
     oss << "(" << op;
     for (const auto &a : args) oss << " " << a;
@@ -325,13 +344,16 @@ static std::string mk_app(const std::string &op, const std::vector<std::string> 
 static std::string term_to_smt2(const JVal &term,
                                 const std::map<std::string, VarInfo> &vars,
                                 bool prime_all,
+                                std::map<std::string, std::string> let_bindings);
+
+static std::string term_to_smt2(const JVal &term,
+                                const std::map<std::string, VarInfo> &vars,
+                                bool prime_all,
                                 std::map<std::string, std::string> let_bindings)
 {
-    // term format:
-    // { "identifier": <string|object>, "args": [ ... ] }
     const JVal &ident = term.get("identifier");
 
-    // "let" is encoded inside identifier object, and body is in term.args[0]
+    // let
     if (ident.is_obj() && ident.has("symbol") && ident.get("symbol").as_str() == "let") {
         const auto &binders = ident.get("binders").as_arr();
         std::ostringstream binds;
@@ -354,7 +376,7 @@ static std::string term_to_smt2(const JVal &term,
         return "(let " + binds.str() + " " + body + ")";
     }
 
-    // identifier is an object => operator / qualified identifier
+    // identifier object
     if (ident.is_obj()) {
         std::string sym = ident.get("symbol").as_str();
 
@@ -365,17 +387,15 @@ static std::string term_to_smt2(const JVal &term,
             }
         }
 
-        // Special: array const with "as" qualifier
-        // JSON typically: { "symbol":"const", "qualifier":"as", "sort":{...} } with args [value]
+        // (as const <sort>) value
         if (sym == "const" && ident.has("qualifier") && ident.get("qualifier").as_str() == "as") {
             if (args_s.size() != 1) throw std::runtime_error("MoXI-JSON: (as const ...) expects 1 arg");
-            // Prefer identifier.sort if present
             if (!ident.has("sort")) throw std::runtime_error("MoXI-JSON: (as const ...) missing sort");
             std::string as_sort = sort_to_smt2(ident.get("sort"));
             return "((as const " + as_sort + ") " + args_s[0] + ")";
         }
 
-        // Indexed operators in SMT-LIB2
+        // Special indexed ops
         auto mk_indexed1 = [&](const std::string &op) -> std::string {
             const auto &idx = ident.get("indices").as_arr();
             if (idx.size() != 1) throw std::runtime_error("MoXI-JSON: " + op + " expects 1 index");
@@ -403,11 +423,48 @@ static std::string term_to_smt2(const JVal &term,
         if (sym == "rotate_left") return mk_indexed1("rotate_left");
         if (sym == "rotate_right") return mk_indexed1("rotate_right");
 
+        // Generic indexed identifier support:
+        // - term: (_ bv1 32)  OR  (_ bv 1 32)  (JSON varies)
+        // - app : ((_ int2bv 32) x)
+        if (ident.has("indices")) {
+            const auto &idx = ident.get("indices").as_arr();
+
+            // Handle BitVec numerals encoded as sym="bv", indices=[val,width]
+            if (sym == "bv" && idx.size() == 2 && args_s.empty()) {
+                long long val = idx[0].is_num() ? idx[0].as_int() : std::stoll(idx[0].as_str());
+                long long wid = idx[1].is_num() ? idx[1].as_int() : std::stoll(idx[1].as_str());
+                std::ostringstream oss;
+                oss << "(_ bv" << val << " " << wid << ")";
+                return oss.str();
+            }
+
+            std::ostringstream idss;
+            idss << "(_ " << sym;
+
+            for (const auto &iv : idx) {
+                if (iv.is_num()) idss << " " << iv.as_int();
+                else if (iv.is_str()) idss << " " << iv.as_str();
+                else throw std::runtime_error("MoXI-JSON: unsupported index type");
+            }
+            idss << ")";
+
+            std::string idx_ident = idss.str();
+            if (args_s.empty()) {
+                return idx_ident;
+            } else {
+                std::ostringstream oss;
+                oss << "(" << idx_ident;
+                for (const auto &a : args_s) oss << " " << a;
+                oss << ")";
+                return oss.str();
+            }
+        }
+
         // Generic operator application
         return mk_app(sym, args_s);
     }
 
-    // identifier is a string => variable or literal
+    // identifier string
     if (!ident.is_str()) throw std::runtime_error("MoXI-JSON: identifier must be string or object");
     std::string id = ident.as_str();
 
@@ -418,18 +475,19 @@ static std::string term_to_smt2(const JVal &term,
     // booleans
     if (id == "true" || id == "false") return id;
 
-    // bitvector literals
+    // bitvector literals like #b...
     if (!id.empty() && id[0] == '#') return id;
 
-    // primed var in MoXI: x'
+    // primed var: x'
     if (!id.empty() && id.back() == '\'') {
         std::string base = id.substr(0, id.size() - 1);
         auto it = vars.find(base);
         if (it == vars.end()) throw std::runtime_error("MoXI-JSON: unknown variable (primed): " + base);
+        if (!it->second.is_state) throw std::runtime_error("MoXI-JSON: primed input is not supported: " + base);
         return smt_ident(it->second.next_name);
     }
 
-    // numeric literal (MoXI JSON encodes numerals as strings)
+    // numeric literal (often encoded as string)
     bool is_num = true;
     size_t p = 0;
     if (!id.empty() && (id[0] == '-' || id[0] == '+')) p = 1;
@@ -439,43 +497,15 @@ static std::string term_to_smt2(const JVal &term,
     }
     if (is_num) return id;
 
-    // plain variable
+    // variable
     auto it = vars.find(id);
     if (it != vars.end()) {
-        if (prime_all) return smt_ident(it->second.next_name);
+        if (prime_all && it->second.is_state) return smt_ident(it->second.next_name);
         return smt_ident(it->second.name);
     }
 
-    // fallback: treat as a symbol constant
+    // fallback symbol
     return smt_ident(id);
-}
-
-static std::map<std::string, VarInfo> collect_vars(const JVal &def_sys_cmd,
-                                                   bool include_inputs_as_state)
-{
-    std::map<std::string, VarInfo> out;
-
-    auto add_list = [&](const char *field) {
-        if (!def_sys_cmd.has(field)) return;
-        const auto &lst = def_sys_cmd.get(field).as_arr();
-        for (const auto &v : lst) {
-            std::string name = v.get("symbol").as_str();
-            std::string sort = sort_to_smt2(v.get("sort"));
-            VarInfo info;
-            info.name = name;
-            info.next_name = name + ".next";
-            info.sort = sort;
-            out[name] = info;
-        }
-    };
-
-    // MoXIchecker treats all variables uniformly; to mimic that,
-    // include inputs too (even if empty).
-    if (include_inputs_as_state) add_list("input");
-    add_list("output");
-    add_list("local");
-
-    return out;
 }
 
 static std::string get_logic(const std::vector<JVal> &cmds) {
@@ -490,13 +520,17 @@ static const JVal& get_check_system(const std::vector<JVal> &cmds) {
     return find_first_cmd(cmds, "check-system");
 }
 
-static std::string get_query_formula_symbol(const JVal &check_sys_cmd) {
+static std::vector<std::string> get_query_formula_symbols(const JVal &check_sys_cmd) {
     const auto &queries = check_sys_cmd.get("query").as_arr();
     if (queries.empty()) throw std::runtime_error("MoXI-JSON: check-system.query is empty");
     const auto &q0 = queries[0];
     const auto &forms = q0.get("formulas").as_arr();
     if (forms.empty()) throw std::runtime_error("MoXI-JSON: first query has no formulas");
-    return forms[0].as_str();
+
+    std::vector<std::string> out;
+    out.reserve(forms.size());
+    for (const auto &f : forms) out.push_back(f.as_str());
+    return out;
 }
 
 static const JVal& find_reachable(const JVal &check_sys_cmd, const std::string &sym) {
@@ -526,53 +560,65 @@ bool moxi_json_to_vmt_smt2(const std::string &json_path,
         std::string sys_sym = check_sys.get("symbol").as_str();
         const JVal &def_sys = find_define_system(cmds, sys_sym);
 
-        // mimic MoXIchecker (uniform variable treatment)
-        const bool include_inputs_as_state = true;
-        std::map<std::string, VarInfo> vars = collect_vars(def_sys, include_inputs_as_state);
+        std::map<std::string, VarInfo> vars = collect_vars(def_sys);
 
-        // Extract MoXI formulas and print SMT-LIB2 expressions
+        // Core formulas
         std::string init_s = term_to_smt2(def_sys.get("init"), vars, /*prime_all=*/false, {});
         std::string trans_s = term_to_smt2(def_sys.get("trans"), vars, /*prime_all=*/false, {});
         std::string inv_s = term_to_smt2(def_sys.get("inv"), vars, /*prime_all=*/false, {});
         std::string inv_next_s = term_to_smt2(def_sys.get("inv"), vars, /*prime_all=*/true, {});
 
-        // Query: pick first referenced reachable formula (MoXIchecker behavior)
-        std::string qsym = get_query_formula_symbol(check_sys);
-        const JVal &reachable = find_reachable(check_sys, qsym);
-        std::string query_s = term_to_smt2(reachable.get("formula"), vars, /*prime_all=*/false, {});
-        std::string prop_s = "(not " + query_s + ")";
+        // Query: OR all referenced reachable formulas; property is NOT(bad)
+        std::vector<std::string> qsyms = get_query_formula_symbols(check_sys);
+        std::vector<std::string> bad_terms;
+        bad_terms.reserve(qsyms.size());
+        for (const auto &qs : qsyms) {
+            const JVal &rch = find_reachable(check_sys, qs);
+            bad_terms.push_back(term_to_smt2(rch.get("formula"), vars, /*prime_all=*/false, {}));
+        }
 
-        // Compose (MoXIchecker semantics): init ∧ inv, trans ∧ inv'
+        std::string bad_s;
+        if (bad_terms.size() == 1) bad_s = bad_terms[0];
+        else {
+            std::ostringstream oss;
+            oss << "(or";
+            for (const auto &bt : bad_terms) oss << " " << bt;
+            oss << ")";
+            bad_s = oss.str();
+        }
+        std::string prop_s = "(not " + bad_s + ")";
+
+        // Safer semantics: init ∧ inv, trans ∧ inv ∧ inv'
         std::string init_final = "(and " + init_s + " " + inv_s + ")";
-        std::string trans_final = "(and " + trans_s + " " + inv_next_s + ")";
+        std::string trans_final = "(and " + trans_s + " " + inv_s + " " + inv_next_s + ")";
 
         std::ostringstream out;
         out << "(set-logic " << logic << ")\n";
 
-        // Declarations
+        // Declarations: inputs only current; state vars current+next
         for (const auto &kv : vars) {
             const VarInfo &v = kv.second;
             out << "(declare-const " << smt_ident(v.name) << " " << v.sort << ")\n";
-            out << "(declare-const " << smt_ident(v.next_name) << " " << v.sort << ")\n";
+            if (v.is_state) {
+                out << "(declare-const " << smt_ident(v.next_name) << " " << v.sort << ")\n";
+            }
         }
 
-        // :next annotations (VMT-style)
+        // :next wrappers only for state vars
+        int svi = 0;
         for (const auto &kv : vars) {
             const VarInfo &v = kv.second;
-            // define-fun wrapper to carry annotation on the term
-            out << "(define-fun sv_" << smt_ident(v.name)
+            if (!v.is_state) continue;
+            out << "(define-fun sv" << svi++
                 << " () " << v.sort
                 << " (! " << smt_ident(v.name)
                 << " :next " << smt_ident(v.next_name)
                 << "))\n";
         }
 
-        // init/trans/property annotations
         out << "(define-fun init () Bool (! " << init_final << " :init true))\n";
         out << "(define-fun trans () Bool (! " << trans_final << " :trans true))\n";
         out << "(define-fun prop0 () Bool (! " << prop_s << " :invar-property 0))\n";
-
-        // Allowed convenience terminator (as in ic3ia README/spec comment)
         out << "(assert true)\n";
 
         out_smt2 = out.str();
