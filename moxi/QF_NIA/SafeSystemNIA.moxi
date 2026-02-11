@@ -1,0 +1,26 @@
+(set-logic QF_NIA)
+
+(define-system SafeSystem
+    :input ((a Int) (b Int))
+    :output ((o Int))
+    :local ((x Int) (y Int))
+    :inv (and (>= x 0) (<= x 10) (>= y 0) (<= y 10))
+    :init (and
+        (= x a)
+        (= y b)
+        (= o (+ (* x x) (+ (* y y) 1)))  ; Nonlinear term: x^2 + y^2 + 1
+    )
+    :trans (and
+        (= x' (ite (< x 10) (+ x 1) x))  ; Increment x while keeping it in bounds
+        (= y' (ite (< y 10) (+ y 1) y))  ; Increment y while keeping it in bounds
+        (= o' (+ (* x' x') (+ (* y' y') 1)))  ; Nonlinear term: x'^2 + y'^2 + 1
+    )
+)
+
+(check-system SafeSystem
+    :input ((a Int) (b Int))
+    :output ((o Int))
+    :local ((x Int) (y Int))
+    :reachable (rch (> o 1000))  ; Check if o can exceed 1000
+    :query (q (rch))         ; We expect that o should not exceed 1000
+)

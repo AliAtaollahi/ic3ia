@@ -1,0 +1,15 @@
+(set-logic QF_LIA)
+
+(define-system CounterReset
+    :input ()
+    :output ((n Int))
+    :init (= n 10000)
+    :trans (= n' (ite (= n 0) 10000 (- n 1)))
+)
+
+(check-system CounterReset
+    :input ()
+    :output ((n Int))
+    :reachable (rch (< n 0))
+    :query (q (rch))
+)

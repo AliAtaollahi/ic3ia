@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libic3ia.a CMakeFiles/ic3ia.dir/utils.cpp.o CMakeFiles/ic3ia.dir/ia.cpp.o CMakeFiles/ic3ia.dir/ic3.cpp.o CMakeFiles/ic3ia.dir/solver.cpp.o CMakeFiles/ic3ia.dir/ts.cpp.o CMakeFiles/ic3ia.dir/unroll.cpp.o CMakeFiles/ic3ia.dir/live.cpp.o CMakeFiles/ic3ia.dir/bmc.cpp.o CMakeFiles/ic3ia.dir/ltl.cpp.o CMakeFiles/ic3ia.dir/proof.cpp.o CMakeFiles/ic3ia.dir/api.cpp.o CMakeFiles/ic3ia.dir/ic3ia.cpp.o CMakeFiles/ic3ia.dir/invred.cpp.o CMakeFiles/ic3ia.dir/moxi_json_loader.cpp.o
+/usr/bin/ranlib lib/libic3ia.a

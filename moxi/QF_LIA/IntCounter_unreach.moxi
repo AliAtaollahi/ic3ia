@@ -1,0 +1,15 @@
+; modified from https://github.com/ModelChecker/Benchmarks/blob/b7486a56585c1a4a4135e296e03a8aab833ebaf8/QF_LIA/lustre/_6countern.moxi
+(set-logic QF_LIA)
+(define-system main 
+   :input () 
+   :output ((_OK_ Bool) (time Int) (ite Int) (flby Int)) 
+   :local () 
+   :init (= flby 1) 
+   :trans (and (and (=> (= time 5) (= ite' 0)) (=> (not (= time 5)) (= ite' (+ time 1)))) (= flby' ite')) 
+   :inv (and (= _OK_ (or (> time 0) (= time 0))) (= time flby)) )
+(check-system main 
+   :input () 
+   :output ((_OK_ Bool) (time Int) (ite Int) (flby Int)) 
+   :local () 
+   :reachable (rch_1 (not _OK_))
+   :query (qry_rch_1 (rch_1)))

@@ -92,6 +92,7 @@ set(SRCS
     api.cpp
     ic3ia.cpp
     invred.cpp
+    moxi_json_loader.cpp
 )
 
 # ------------------------ Targets ------------------------

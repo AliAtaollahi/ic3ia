@@ -1,0 +1,16 @@
+(set-logic QF_NRA)
+
+(define-system SimpleQuadraticSystem
+    :input ()
+    :output ((x Real) (y Real))
+    :init (and (= x 1) (= y 1))
+    :trans (and (= x' (+ (* x x) 1)) (= y' (* 2 y)))
+)
+
+(check-system SimpleQuadraticSystem
+    :input ()
+    :output ((x Real) (y Real))
+    ; :reachable (rch (= (+ x 2) 0))
+    :reachable (rch (> y x))
+    :query (q (rch))
+)

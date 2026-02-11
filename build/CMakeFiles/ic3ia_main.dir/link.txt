@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -O3 CMakeFiles/ic3ia_main.dir/main.cpp.o -o bin/ic3ia  -Wl,-rpath,/ABSOLUTE/PATH/TO/YOUR/MATHSAT/lib:/usr/local/lib lib/libic3ia.a /usr/local/lib/libmathsat.so /usr/lib/x86_64-linux-gnu/libgmpxx.so /usr/lib/x86_64-linux-gnu/libgmp.so

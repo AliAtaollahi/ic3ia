@@ -1,0 +1,14 @@
+(set-logic QF_ABV)
+(define-system main 
+   :input ((_dquote_i0_lbrack_enable_rbrack__dquote_ Bool) (_dquote_i1_lbrack_reset_rbrack__dquote_ Bool)) 
+   :output ((_dquote_s0_lbrack_counter_rbrack__dquote_ (_ BitVec 4))) 
+   :local () 
+   :init (= _dquote_s0_lbrack_counter_rbrack__dquote_ #b0000) 
+   :trans (= (ite _dquote_i1_lbrack_reset_rbrack__dquote_ #b0000 (ite true (ite _dquote_i0_lbrack_enable_rbrack__dquote_ (bvadd #b0001 _dquote_s0_lbrack_counter_rbrack__dquote_) (ite true _dquote_s0_lbrack_counter_rbrack__dquote_ _dquote_s0_lbrack_counter_rbrack__dquote_)) (ite _dquote_i0_lbrack_enable_rbrack__dquote_ (bvadd #b0001 _dquote_s0_lbrack_counter_rbrack__dquote_) (ite true _dquote_s0_lbrack_counter_rbrack__dquote_ _dquote_s0_lbrack_counter_rbrack__dquote_)))) _dquote_s0_lbrack_counter_rbrack__dquote_') 
+   :inv true )
+(check-system main 
+   :input ((_dquote_i0_lbrack_enable_rbrack__dquote_ Bool) (_dquote_i1_lbrack_reset_rbrack__dquote_ Bool)) 
+   :output ((_dquote_s0_lbrack_counter_rbrack__dquote_ (_ BitVec 4))) 
+   :local () 
+   :reachable (rch_1 (not (not (= _dquote_s0_lbrack_counter_rbrack__dquote_ #b1111))))
+   :query (qry_rch_1 (rch_1)))

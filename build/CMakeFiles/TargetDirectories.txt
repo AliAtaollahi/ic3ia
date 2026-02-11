@@ -1,0 +1,7 @@
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/ic3ia.dir
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/ic3ia_main.dir
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/horn2vmt.dir
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/proofchecker.dir
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/py.dir
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/edit_cache.dir
+/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/rebuild_cache.dir

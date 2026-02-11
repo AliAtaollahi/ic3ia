@@ -1,0 +1,20 @@
+(set-logic QF_NIA)
+
+(define-system main
+    :input ()
+    :output ((a Int) (b Int))
+    :local ()
+    :init ((and (= a 2) (= b 1)))
+    :trans (and
+        (= a' (* a b))
+        (= b' a)
+    )
+)
+
+(check-system main
+    :input ()
+    :output ((a Int) (b Int))
+    :local ()
+    :reachable (rch (not (> a 0)))
+    :query (q (rch))
+)

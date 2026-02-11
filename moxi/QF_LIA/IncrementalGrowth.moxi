@@ -1,0 +1,15 @@
+(set-logic QF_LIA)
+
+(define-system IncrementalGrowth
+    :input ()
+    :output ((n Int) (m Int))
+    :init (and (= n 0) (= m 1))
+    :trans (and (= n' (+ n m)) (= m' (+ m 1)))
+)
+
+(check-system IncrementalGrowth
+    :input ()
+    :output ((n Int) (m Int))
+    :reachable (rch (and (>= n 0) (>= m 0)))
+    :query (q (rch))
+)

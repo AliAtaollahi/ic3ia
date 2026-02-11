@@ -1,0 +1,16 @@
+(set-logic QF_NRA)
+
+(define-system NonlinearGrowth
+    :input ((a Real) (b Real))
+    :output ((n Real))
+    :inv (and (> a 0) (> b 0))
+    :init (and (= n 1) (= a 2) (= b 3))
+    :trans (and (= n' (+ n (* a b))) (= a' (+ a 1)) (= b' (+ b 1)))
+)
+
+(check-system NonlinearGrowth
+    :input ((a Real) (b Real))
+    :output ((n Real))
+    :reachable (rch (> n 100))
+    :query (q (rch))
+)

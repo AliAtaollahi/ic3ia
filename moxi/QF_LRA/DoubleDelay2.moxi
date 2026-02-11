@@ -1,0 +1,39 @@
+; source: https://github.com/ModelChecker/moxi-mc-flow/blob/6240207d1ae5629751b15ccddba97b2021e8d7f7/test/moxi/QF_LRA/DoubleDelay2.moxi
+
+(set-logic QF_LRA)
+
+;; DoubleDelay expanded
+(define-system DoubleDelay
+  :input ( (in Real) )
+  :output ( (out Real) )
+  :local ( 
+    (temp Real)  
+    (s1 Real)      ; from `(Delay in temp)`
+    (s2 Real)      ; from `(Delay temp out)`
+  )
+  :inv (and
+    (= s1 in)     ; from `(Delay in temp)`
+    (= s2 temp)   ; from `(Delay temp out)`
+  )
+  :init (and
+    (= temp 0)   ; from `(Delay in temp)`
+    (= out 0)    ; from  `(Delay temp out)`
+  )
+  :trans (and
+    (= temp' s1) ; from `(Delay in temp)`
+    (= out' s2)  ; from `(Delay temp out)`
+  )
+)
+
+
+(check-system DoubleDelay
+  :input ( (in Real) )
+  :output ( (out Real) )
+  :local ( 
+    (temp Real)  
+    (s1 Real)      ; from `(Delay in temp)`
+    (s2 Real)      ; from `(Delay temp out)`
+  )
+  :reachable (r1 (= out 10))
+  :query (q1 (r1))
+)

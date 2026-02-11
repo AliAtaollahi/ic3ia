@@ -1,0 +1,2420 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/uname"
+      - "/usr/local/bin/uname"
+      - "/home/ali123ata/.local/bin/uname"
+      - "/home/ali123ata/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/usr/sbin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 5.15.0-139-generic - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/home/ali123ata/.local/bin/gmake"
+      - "/home/ali123ata/bin/gmake"
+      - "/usr/local/sbin/gmake"
+      - "/usr/sbin/gmake"
+      - "/usr/bin/gmake"
+      - "/sbin/gmake"
+      - "/bin/gmake"
+      - "/usr/games/gmake"
+      - "/usr/local/games/gmake"
+      - "/snap/bin/gmake"
+      - "/home/ali123ata/Isabelle2025/bin/gmake"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/make"
+      - "/usr/local/bin/make"
+      - "/home/ali123ata/.local/bin/make"
+      - "/home/ali123ata/bin/make"
+      - "/usr/local/sbin/make"
+      - "/usr/sbin/make"
+    found: "/usr/bin/make"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER"
+    description: "CXX compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "c++"
+      - "CC"
+      - "g++"
+      - "aCC"
+      - "cl"
+      - "bcc"
+      - "xlC"
+      - "icpx"
+      - "icx"
+      - "clang++"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/c++"
+      - "/usr/local/bin/c++"
+      - "/home/ali123ata/.local/bin/c++"
+      - "/home/ali123ata/bin/c++"
+      - "/usr/local/sbin/c++"
+      - "/usr/sbin/c++"
+    found: "/usr/bin/c++"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/"
+    found: "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/4.1.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/nm"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/objdump"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/readelf"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/usr/bin/dlltool"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/home/ali123ata/.local/bin/dlltool"
+      - "/home/ali123ata/bin/dlltool"
+      - "/usr/local/sbin/dlltool"
+      - "/usr/sbin/dlltool"
+      - "/sbin/dlltool"
+      - "/bin/dlltool"
+      - "/usr/games/dlltool"
+      - "/usr/local/games/dlltool"
+      - "/snap/bin/dlltool"
+      - "/home/ali123ata/Isabelle2025/bin/dlltool"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    found: "/usr/bin/addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/usr/bin/tapi"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/home/ali123ata/.local/bin/tapi"
+      - "/home/ali123ata/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/sbin/tapi"
+      - "/sbin/tapi"
+      - "/bin/tapi"
+      - "/usr/games/tapi"
+      - "/usr/local/games/tapi"
+      - "/snap/bin/tapi"
+      - "/home/ali123ata/Isabelle2025/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-11.4"
+      - "gcc-ar-11"
+      - "gcc-ar11"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-11.4"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/gcc-ar-11.4"
+      - "/usr/local/bin/gcc-ar-11.4"
+      - "/home/ali123ata/.local/bin/gcc-ar-11.4"
+      - "/home/ali123ata/bin/gcc-ar-11.4"
+      - "/usr/local/sbin/gcc-ar-11.4"
+      - "/usr/sbin/gcc-ar-11.4"
+      - "/sbin/gcc-ar-11.4"
+      - "/bin/gcc-ar-11.4"
+      - "/usr/games/gcc-ar-11.4"
+      - "/usr/local/games/gcc-ar-11.4"
+      - "/snap/bin/gcc-ar-11.4"
+      - "/home/ali123ata/Isabelle2025/bin/gcc-ar-11.4"
+    found: "/usr/bin/gcc-ar-11"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-11.4"
+      - "gcc-ranlib-11"
+      - "gcc-ranlib11"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-11.4"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/gcc-ranlib-11.4"
+      - "/usr/local/bin/gcc-ranlib-11.4"
+      - "/home/ali123ata/.local/bin/gcc-ranlib-11.4"
+      - "/home/ali123ata/bin/gcc-ranlib-11.4"
+      - "/usr/local/sbin/gcc-ranlib-11.4"
+      - "/usr/sbin/gcc-ranlib-11.4"
+      - "/sbin/gcc-ranlib-11.4"
+      - "/bin/gcc-ranlib-11.4"
+      - "/usr/games/gcc-ranlib-11.4"
+      - "/usr/local/games/gcc-ranlib-11.4"
+      - "/snap/bin/gcc-ranlib-11.4"
+      - "/home/ali123ata/Isabelle2025/bin/gcc-ranlib-11.4"
+    found: "/usr/bin/gcc-ranlib-11"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ"
+      binary: "/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ'
+        
+        Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e3f07/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e3f07.dir/build.make CMakeFiles/cmTC_e3f07.dir/build
+        make[1]: Entering directory '/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ'
+        Building CXX object CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -c /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-2ubuntu1~20.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e3f07.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_e3f07.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccZYVaoc.s
+        GNU C++17 (Ubuntu 11.4.0-2ubuntu1~20.04) version 11.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/include/c++/11
+         /usr/include/x86_64-linux-gnu/c++/11
+         /usr/include/c++/11/backward
+         /usr/lib/gcc/x86_64-linux-gnu/11/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C++17 (Ubuntu 11.4.0-2ubuntu1~20.04) version 11.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 9a55a23eecc346a189dae569855eff82
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e3f07.dir/'
+         as -v --64 -o CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccZYVaoc.s
+        GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_e3f07
+        /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3f07.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-2ubuntu1~20.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e3f07' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_e3f07.'
+         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT2JlpG.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e3f07 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        collect2 version 11.4.0
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT2JlpG.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e3f07 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.34
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e3f07' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_e3f07.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e3f07
+        make[1]: Leaving directory '/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/include/c++/11]
+          add: [/usr/include/x86_64-linux-gnu/c++/11]
+          add: [/usr/include/c++/11/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/include/c++/11] ==> [/usr/include/c++/11]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/11] ==> [/usr/include/x86_64-linux-gnu/c++/11]
+        collapse include dir [/usr/include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/11;/usr/include/x86_64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e3f07/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_e3f07.dir/build.make CMakeFiles/cmTC_e3f07.dir/build]
+        ignore line: [make[1]: Entering directory '/home/ali123ata/Desktop/1/NTU/MoxiCpp/ic3ia/build/CMakeFiles/CMakeScratch/TryCompile-anYmpZ']
+        ignore line: [Building CXX object CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -c /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-2ubuntu1~20.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e3f07.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_e3f07.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccZYVaoc.s]
+        ignore line: [GNU C++17 (Ubuntu 11.4.0-2ubuntu1~20.04) version 11.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/include/c++/11]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/11]
+        ignore line: [ /usr/include/c++/11/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++17 (Ubuntu 11.4.0-2ubuntu1~20.04) version 11.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 9a55a23eecc346a189dae569855eff82]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e3f07.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccZYVaoc.s]
+        ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_e3f07]
+        ignore line: [/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3f07.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-2ubuntu1~20.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-PfdVzN/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-2ubuntu1~20.04) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e3f07' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_e3f07.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT2JlpG.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e3f07 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccT2JlpG.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_e3f07] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [collect2 version 11.4.0]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT2JlpG.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e3f07 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -v CMakeFiles/cmTC_e3f07.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.34
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:55 (find_library)"
+    mode: "library"
+    variable: "mathsat"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mathsat"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/x86_64-linux-gnu/"
+      - "/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/x86_64-linux-gnu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/lib/x86_64-linux-gnu/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/x86_64-linux-gnu/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/x86_64-linux-gnu/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+      - "/ABSOLUTE/PATH/TO/YOUR/MATHSAT/lib/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+    found: "/usr/local/lib/libmathsat.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:60 (find_library)"
+    mode: "library"
+    variable: "gmpxx"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmpxx"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/x86_64-linux-gnu/"
+      - "/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/x86_64-linux-gnu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/lib/x86_64-linux-gnu/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/x86_64-linux-gnu/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/x86_64-linux-gnu/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+    found: "/usr/lib/x86_64-linux-gnu/libgmpxx.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:61 (find_library)"
+    mode: "library"
+    variable: "gmp"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmp"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/x86_64-linux-gnu/"
+      - "/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/x86_64-linux-gnu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/lib/x86_64-linux-gnu/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/x86_64-linux-gnu/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/x86_64-linux-gnu/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+    found: "/usr/lib/x86_64-linux-gnu/libgmp.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/FindPythonInterp.cmake:127 (find_program)"
+      - "CMakeLists.txt:118 (find_package)"
+    mode: "program"
+    variable: "PYTHON_EXECUTABLE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/sbin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/FindPythonInterp.cmake:157 (find_program)"
+      - "CMakeLists.txt:118 (find_package)"
+    mode: "program"
+    variable: "PYTHON_EXECUTABLE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/sbin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python"
+      - "/usr/local/bin/python"
+      - "/home/ali123ata/.local/bin/python"
+      - "/home/ali123ata/bin/python"
+      - "/usr/local/sbin/python"
+      - "/usr/sbin/python"
+    found: "/usr/bin/python"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/FindSWIG.cmake:133 (find_program)"
+      - "CMakeLists.txt:119 (find_package)"
+    mode: "program"
+    variable: "SWIG_EXECUTABLE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "swig4.0"
+      - "swig3.0"
+      - "swig2.0"
+      - "swig"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/bin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/sbin/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/swig4.0"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/swig3.0"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/swig2.0"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/swig"
+      - "/usr/local/bin/swig4.0"
+      - "/usr/local/bin/swig3.0"
+      - "/usr/local/bin/swig2.0"
+      - "/usr/local/bin/swig"
+      - "/home/ali123ata/.local/bin/swig4.0"
+      - "/home/ali123ata/.local/bin/swig3.0"
+      - "/home/ali123ata/.local/bin/swig2.0"
+      - "/home/ali123ata/.local/bin/swig"
+      - "/home/ali123ata/bin/swig4.0"
+      - "/home/ali123ata/bin/swig3.0"
+      - "/home/ali123ata/bin/swig2.0"
+      - "/home/ali123ata/bin/swig"
+      - "/usr/local/sbin/swig4.0"
+      - "/usr/local/sbin/swig3.0"
+      - "/usr/local/sbin/swig2.0"
+      - "/usr/local/sbin/swig"
+      - "/usr/sbin/swig4.0"
+      - "/usr/sbin/swig3.0"
+      - "/usr/sbin/swig2.0"
+      - "/usr/sbin/swig"
+    found: "/usr/bin/swig4.0"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/FindSWIG.cmake:157 (find_path)"
+      - "CMakeLists.txt:119 (find_package)"
+    mode: "path"
+    variable: "SWIG_DIR"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "swig.swg"
+    candidate_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/include/x86_64-linux-gnu/"
+      - "/usr/local/include/"
+      - "/usr/local/"
+      - "/usr/include/x86_64-linux-gnu/"
+      - "/usr/include/"
+      - "/usr/"
+      - "/include/x86_64-linux-gnu/"
+      - "/include/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/include/x86_64-linux-gnu/"
+      - "/usr/X11R6/include/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/include/x86_64-linux-gnu/"
+      - "/usr/pkg/include/"
+      - "/usr/pkg/"
+      - "/opt/include/x86_64-linux-gnu/"
+      - "/opt/include/"
+      - "/opt/"
+      - "/usr/include/X11/"
+      - "/usr/share/swig4.0/"
+    searched_directories:
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/swig.swg"
+      - "/usr/local/bin/swig.swg"
+      - "/home/ali123ata/.local/bin/swig.swg"
+      - "/home/ali123ata/bin/swig.swg"
+      - "/usr/local/sbin/swig.swg"
+      - "/usr/sbin/swig.swg"
+      - "/usr/bin/swig.swg"
+      - "/sbin/swig.swg"
+      - "/bin/swig.swg"
+      - "/usr/games/swig.swg"
+      - "/usr/local/games/swig.swg"
+      - "/snap/bin/swig.swg"
+      - "/home/ali123ata/Isabelle2025/bin/swig.swg"
+      - "/usr/local/include/x86_64-linux-gnu/swig.swg"
+      - "/usr/local/include/swig.swg"
+      - "/usr/local/swig.swg"
+      - "/usr/include/x86_64-linux-gnu/swig.swg"
+      - "/usr/include/swig.swg"
+      - "/usr/swig.swg"
+      - "/include/x86_64-linux-gnu/swig.swg"
+      - "/include/swig.swg"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/swig.swg"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/swig.swg"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/swig.swg"
+      - "/usr/X11R6/include/x86_64-linux-gnu/swig.swg"
+      - "/usr/X11R6/include/swig.swg"
+      - "/usr/X11R6/swig.swg"
+      - "/usr/pkg/include/x86_64-linux-gnu/swig.swg"
+      - "/usr/pkg/include/swig.swg"
+      - "/usr/pkg/swig.swg"
+      - "/opt/include/x86_64-linux-gnu/swig.swg"
+      - "/opt/include/swig.swg"
+      - "/opt/swig.swg"
+      - "/usr/include/X11/swig.swg"
+    found: "/usr/share/swig4.0/"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/FindPythonLibs.cmake:260 (find_library)"
+      - "CMakeLists.txt:120 (find_package)"
+    mode: "library"
+    variable: "PYTHON_LIBRARY"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python310"
+      - "python3.10mu"
+      - "python3.10m"
+      - "python3.10u"
+      - "python3.10"
+    candidate_directories:
+      - "/usr/lib/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/x86_64-linux-gnu/"
+      - "/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/x86_64-linux-gnu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/lib/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/lib/x86_64-linux-gnu/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/x86_64-linux-gnu/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/x86_64-linux-gnu/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/usr/lib/"
+      - "/usr/lib/"
+      - "/usr/lib/"
+      - "/usr/lib/"
+      - "/usr/lib/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/"
+      - "/home/ali123ata/bin/"
+      - "/home/ali123ata/bin/"
+      - "/home/ali123ata/bin/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/"
+      - "/usr/sbin/"
+      - "/usr/sbin/"
+      - "/usr/sbin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/sbin/"
+      - "/sbin/"
+      - "/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/bin/"
+      - "/bin/"
+      - "/bin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/games/"
+      - "/usr/games/"
+      - "/usr/games/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/local/games/"
+      - "/usr/local/games/"
+      - "/usr/local/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/snap/bin/"
+      - "/snap/bin/"
+      - "/snap/bin/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/x86_64-linux-gnu/"
+      - "/usr/local/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/local/"
+      - "/usr/local/"
+      - "/usr/local/"
+      - "/usr/local/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/x86_64-linux-gnu/"
+      - "/usr/lib/x86_64-linux-gnu/"
+    found: "/usr/lib/x86_64-linux-gnu/libpython3.10.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/share/cmake-4.1/Modules/FindPythonLibs.cmake:315 (find_path)"
+      - "CMakeLists.txt:120 (find_package)"
+    mode: "path"
+    variable: "PYTHON_INCLUDE_DIR"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Python.h"
+    candidate_directories:
+      - "/usr/lib/include/python3.10mu/"
+      - "/usr/lib/include/python3.10m/"
+      - "/usr/lib/include/python3.10u/"
+      - "/usr/lib/include/python3.10/"
+      - "/usr/lib/include/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10mu/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10m/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10u/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10/"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/"
+      - "/usr/local/bin/python3.10mu/"
+      - "/usr/local/bin/python3.10m/"
+      - "/usr/local/bin/python3.10u/"
+      - "/usr/local/bin/python3.10/"
+      - "/usr/local/bin/"
+      - "/home/ali123ata/.local/bin/python3.10mu/"
+      - "/home/ali123ata/.local/bin/python3.10m/"
+      - "/home/ali123ata/.local/bin/python3.10u/"
+      - "/home/ali123ata/.local/bin/python3.10/"
+      - "/home/ali123ata/.local/bin/"
+      - "/home/ali123ata/bin/python3.10mu/"
+      - "/home/ali123ata/bin/python3.10m/"
+      - "/home/ali123ata/bin/python3.10u/"
+      - "/home/ali123ata/bin/python3.10/"
+      - "/home/ali123ata/bin/"
+      - "/usr/local/sbin/python3.10mu/"
+      - "/usr/local/sbin/python3.10m/"
+      - "/usr/local/sbin/python3.10u/"
+      - "/usr/local/sbin/python3.10/"
+      - "/usr/local/sbin/"
+      - "/usr/sbin/python3.10mu/"
+      - "/usr/sbin/python3.10m/"
+      - "/usr/sbin/python3.10u/"
+      - "/usr/sbin/python3.10/"
+      - "/usr/sbin/"
+      - "/usr/bin/python3.10mu/"
+      - "/usr/bin/python3.10m/"
+      - "/usr/bin/python3.10u/"
+      - "/usr/bin/python3.10/"
+      - "/usr/bin/"
+      - "/sbin/python3.10mu/"
+      - "/sbin/python3.10m/"
+      - "/sbin/python3.10u/"
+      - "/sbin/python3.10/"
+      - "/sbin/"
+      - "/bin/python3.10mu/"
+      - "/bin/python3.10m/"
+      - "/bin/python3.10u/"
+      - "/bin/python3.10/"
+      - "/bin/"
+      - "/usr/games/python3.10mu/"
+      - "/usr/games/python3.10m/"
+      - "/usr/games/python3.10u/"
+      - "/usr/games/python3.10/"
+      - "/usr/games/"
+      - "/usr/local/games/python3.10mu/"
+      - "/usr/local/games/python3.10m/"
+      - "/usr/local/games/python3.10u/"
+      - "/usr/local/games/python3.10/"
+      - "/usr/local/games/"
+      - "/snap/bin/python3.10mu/"
+      - "/snap/bin/python3.10m/"
+      - "/snap/bin/python3.10u/"
+      - "/snap/bin/python3.10/"
+      - "/snap/bin/"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10mu/"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10m/"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10u/"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10/"
+      - "/home/ali123ata/Isabelle2025/bin/"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10mu/"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10m/"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10u/"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10/"
+      - "/usr/local/include/x86_64-linux-gnu/"
+      - "/usr/local/include/python3.10mu/"
+      - "/usr/local/include/python3.10m/"
+      - "/usr/local/include/python3.10u/"
+      - "/usr/local/include/python3.10/"
+      - "/usr/local/include/"
+      - "/usr/local/python3.10mu/"
+      - "/usr/local/python3.10m/"
+      - "/usr/local/python3.10u/"
+      - "/usr/local/python3.10/"
+      - "/usr/local/"
+      - "/usr/include/x86_64-linux-gnu/python3.10mu/"
+      - "/usr/include/x86_64-linux-gnu/python3.10m/"
+      - "/usr/include/x86_64-linux-gnu/python3.10u/"
+      - "/usr/include/x86_64-linux-gnu/python3.10/"
+      - "/usr/include/x86_64-linux-gnu/"
+      - "/usr/include/python3.10mu/"
+      - "/usr/include/python3.10m/"
+      - "/usr/include/python3.10u/"
+      - "/usr/include/python3.10/"
+      - "/usr/include/"
+      - "/usr/python3.10mu/"
+      - "/usr/python3.10m/"
+      - "/usr/python3.10u/"
+      - "/usr/python3.10/"
+      - "/usr/"
+      - "/include/x86_64-linux-gnu/python3.10mu/"
+      - "/include/x86_64-linux-gnu/python3.10m/"
+      - "/include/x86_64-linux-gnu/python3.10u/"
+      - "/include/x86_64-linux-gnu/python3.10/"
+      - "/include/x86_64-linux-gnu/"
+      - "/include/python3.10mu/"
+      - "/include/python3.10m/"
+      - "/include/python3.10u/"
+      - "/include/python3.10/"
+      - "/include/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/python3.10mu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/python3.10m/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/python3.10u/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/python3.10/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/x86_64-linux-gnu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/python3.10mu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/python3.10m/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/python3.10u/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/python3.10/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/include/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/python3.10mu/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/python3.10m/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/python3.10u/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/python3.10/"
+      - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data/"
+      - "/usr/X11R6/include/x86_64-linux-gnu/python3.10mu/"
+      - "/usr/X11R6/include/x86_64-linux-gnu/python3.10m/"
+      - "/usr/X11R6/include/x86_64-linux-gnu/python3.10u/"
+      - "/usr/X11R6/include/x86_64-linux-gnu/python3.10/"
+      - "/usr/X11R6/include/x86_64-linux-gnu/"
+      - "/usr/X11R6/include/python3.10mu/"
+      - "/usr/X11R6/include/python3.10m/"
+      - "/usr/X11R6/include/python3.10u/"
+      - "/usr/X11R6/include/python3.10/"
+      - "/usr/X11R6/include/"
+      - "/usr/X11R6/python3.10mu/"
+      - "/usr/X11R6/python3.10m/"
+      - "/usr/X11R6/python3.10u/"
+      - "/usr/X11R6/python3.10/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/include/x86_64-linux-gnu/python3.10mu/"
+      - "/usr/pkg/include/x86_64-linux-gnu/python3.10m/"
+      - "/usr/pkg/include/x86_64-linux-gnu/python3.10u/"
+      - "/usr/pkg/include/x86_64-linux-gnu/python3.10/"
+      - "/usr/pkg/include/x86_64-linux-gnu/"
+      - "/usr/pkg/include/python3.10mu/"
+      - "/usr/pkg/include/python3.10m/"
+      - "/usr/pkg/include/python3.10u/"
+      - "/usr/pkg/include/python3.10/"
+      - "/usr/pkg/include/"
+      - "/usr/pkg/python3.10mu/"
+      - "/usr/pkg/python3.10m/"
+      - "/usr/pkg/python3.10u/"
+      - "/usr/pkg/python3.10/"
+      - "/usr/pkg/"
+      - "/opt/include/x86_64-linux-gnu/python3.10mu/"
+      - "/opt/include/x86_64-linux-gnu/python3.10m/"
+      - "/opt/include/x86_64-linux-gnu/python3.10u/"
+      - "/opt/include/x86_64-linux-gnu/python3.10/"
+      - "/opt/include/x86_64-linux-gnu/"
+      - "/opt/include/python3.10mu/"
+      - "/opt/include/python3.10m/"
+      - "/opt/include/python3.10u/"
+      - "/opt/include/python3.10/"
+      - "/opt/include/"
+      - "/opt/python3.10mu/"
+      - "/opt/python3.10m/"
+      - "/opt/python3.10u/"
+      - "/opt/python3.10/"
+      - "/opt/"
+      - "/usr/include/X11/python3.10mu/"
+      - "/usr/include/X11/python3.10m/"
+      - "/usr/include/X11/python3.10u/"
+      - "/usr/include/X11/python3.10/"
+      - "/usr/include/X11/"
+    searched_directories:
+      - "/usr/lib/include/python3.10mu/Python.h"
+      - "/usr/lib/include/python3.10m/Python.h"
+      - "/usr/lib/include/python3.10u/Python.h"
+      - "/usr/lib/include/python3.10/Python.h"
+      - "/usr/lib/include/Python.h"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10mu/Python.h"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10m/Python.h"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10u/Python.h"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/python3.10/Python.h"
+      - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin/Python.h"
+      - "/usr/local/bin/python3.10mu/Python.h"
+      - "/usr/local/bin/python3.10m/Python.h"
+      - "/usr/local/bin/python3.10u/Python.h"
+      - "/usr/local/bin/python3.10/Python.h"
+      - "/usr/local/bin/Python.h"
+      - "/home/ali123ata/.local/bin/python3.10mu/Python.h"
+      - "/home/ali123ata/.local/bin/python3.10m/Python.h"
+      - "/home/ali123ata/.local/bin/python3.10u/Python.h"
+      - "/home/ali123ata/.local/bin/python3.10/Python.h"
+      - "/home/ali123ata/.local/bin/Python.h"
+      - "/home/ali123ata/bin/python3.10mu/Python.h"
+      - "/home/ali123ata/bin/python3.10m/Python.h"
+      - "/home/ali123ata/bin/python3.10u/Python.h"
+      - "/home/ali123ata/bin/python3.10/Python.h"
+      - "/home/ali123ata/bin/Python.h"
+      - "/usr/local/sbin/python3.10mu/Python.h"
+      - "/usr/local/sbin/python3.10m/Python.h"
+      - "/usr/local/sbin/python3.10u/Python.h"
+      - "/usr/local/sbin/python3.10/Python.h"
+      - "/usr/local/sbin/Python.h"
+      - "/usr/sbin/python3.10mu/Python.h"
+      - "/usr/sbin/python3.10m/Python.h"
+      - "/usr/sbin/python3.10u/Python.h"
+      - "/usr/sbin/python3.10/Python.h"
+      - "/usr/sbin/Python.h"
+      - "/usr/bin/python3.10mu/Python.h"
+      - "/usr/bin/python3.10m/Python.h"
+      - "/usr/bin/python3.10u/Python.h"
+      - "/usr/bin/python3.10/Python.h"
+      - "/usr/bin/Python.h"
+      - "/sbin/python3.10mu/Python.h"
+      - "/sbin/python3.10m/Python.h"
+      - "/sbin/python3.10u/Python.h"
+      - "/sbin/python3.10/Python.h"
+      - "/sbin/Python.h"
+      - "/bin/python3.10mu/Python.h"
+      - "/bin/python3.10m/Python.h"
+      - "/bin/python3.10u/Python.h"
+      - "/bin/python3.10/Python.h"
+      - "/bin/Python.h"
+      - "/usr/games/python3.10mu/Python.h"
+      - "/usr/games/python3.10m/Python.h"
+      - "/usr/games/python3.10u/Python.h"
+      - "/usr/games/python3.10/Python.h"
+      - "/usr/games/Python.h"
+      - "/usr/local/games/python3.10mu/Python.h"
+      - "/usr/local/games/python3.10m/Python.h"
+      - "/usr/local/games/python3.10u/Python.h"
+      - "/usr/local/games/python3.10/Python.h"
+      - "/usr/local/games/Python.h"
+      - "/snap/bin/python3.10mu/Python.h"
+      - "/snap/bin/python3.10m/Python.h"
+      - "/snap/bin/python3.10u/Python.h"
+      - "/snap/bin/python3.10/Python.h"
+      - "/snap/bin/Python.h"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10mu/Python.h"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10m/Python.h"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10u/Python.h"
+      - "/home/ali123ata/Isabelle2025/bin/python3.10/Python.h"
+      - "/home/ali123ata/Isabelle2025/bin/Python.h"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10mu/Python.h"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10m/Python.h"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10u/Python.h"
+      - "/usr/local/include/x86_64-linux-gnu/python3.10/Python.h"
+      - "/usr/local/include/x86_64-linux-gnu/Python.h"
+      - "/usr/local/include/python3.10mu/Python.h"
+      - "/usr/local/include/python3.10m/Python.h"
+      - "/usr/local/include/python3.10u/Python.h"
+      - "/usr/local/include/python3.10/Python.h"
+      - "/usr/local/include/Python.h"
+      - "/usr/local/python3.10mu/Python.h"
+      - "/usr/local/python3.10m/Python.h"
+      - "/usr/local/python3.10u/Python.h"
+      - "/usr/local/python3.10/Python.h"
+      - "/usr/local/Python.h"
+      - "/usr/include/x86_64-linux-gnu/python3.10mu/Python.h"
+      - "/usr/include/x86_64-linux-gnu/python3.10m/Python.h"
+      - "/usr/include/x86_64-linux-gnu/python3.10u/Python.h"
+      - "/usr/include/x86_64-linux-gnu/python3.10/Python.h"
+      - "/usr/include/x86_64-linux-gnu/Python.h"
+      - "/usr/include/python3.10mu/Python.h"
+      - "/usr/include/python3.10m/Python.h"
+      - "/usr/include/python3.10u/Python.h"
+    found: "/usr/include/python3.10/"
+    search_context:
+      ENV{PATH}:
+        - "/home/ali123ata/Desktop/1/moxi-evaluation/model-checkers/moxichecker/bin"
+        - "/usr/local/bin"
+        - "/home/ali123ata/.local/bin"
+        - "/home/ali123ata/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+        - "/home/ali123ata/Isabelle2025/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/ali123ata/.local/lib/python3.10/site-packages/cmake/data"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+...

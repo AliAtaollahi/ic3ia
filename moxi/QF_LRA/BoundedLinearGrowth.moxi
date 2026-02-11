@@ -1,0 +1,16 @@
+(set-logic QF_LRA)
+
+(define-system BoundedLinearGrowth
+    :input ((a Real))
+    :output ((x Real))
+    :inv (and (>= a 0) (<= a 10))
+    :init (= x 0)
+    :trans (and (=> (<= x 90) (= x' (+ x a))) (=> (> x 90) (= x' 0)))
+)
+
+(check-system BoundedLinearGrowth
+    :input ((a Real))
+    :output ((x Real))
+    :reachable (rch (> x 100))
+    :query (q (rch))
+)

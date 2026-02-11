@@ -1,0 +1,16 @@
+(set-logic QF_NRA)
+
+(define-system OscillatingRatio2
+    :input ((a Real))
+    :output ((n Real))
+    :inv (and (> a 1) (< a 2))
+    :init (= n (/ 1 2))
+    :trans (or (and (< n (/ 1 2)) (= n' (* n a))) (and (>= n (/ 1 2)) (= n' (/ n a))))
+)
+
+(check-system OscillatingRatio2
+    :input ((a Real))
+    :output ((n Real))
+    :reachable (rch (or (< n 0) (> n 1)))
+    :query (q (rch))
+)

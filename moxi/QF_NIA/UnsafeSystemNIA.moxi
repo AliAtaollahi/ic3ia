@@ -1,0 +1,28 @@
+(set-logic QF_NIA)
+
+(define-system UnsafeSystem
+    :input ((a Int) (b Int))
+    :output ((o Int))
+    :local ((x Int) (y Int))
+    :inv (and (>= x 1) (>= y 1))
+    :init (and
+        (= x 1)
+        (= y 1)
+        (= x a)
+        (= y b)
+        (= o (+ (* x y) 1))  ; Nonlinear term: x * y + 1
+    )
+    :trans (and
+        (= x' (* 2 x))  ; Double x at each step
+        (= y' (* 2 y))  ; Double y at each step
+        (= o' (+ (* x' y') 1))  ; Nonlinear term: x' * y' + 1
+    )
+)
+
+(check-system UnsafeSystem
+    :input ((a Int) (b Int))
+    :output ((o Int))
+    :local ((x Int) (y Int))
+    :reachable (rch (> o 10000))  ; Check if o can exceed 10000
+    :query (q (rch))              ; We expect that o can exceed 10000
+)

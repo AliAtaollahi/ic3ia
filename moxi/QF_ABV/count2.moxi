@@ -1,0 +1,14 @@
+(set-logic QF_ABV)
+(define-system main 
+   :input () 
+   :output ((_dquote_s0_lbrack__rbrack__dquote_ (_ BitVec 3))) 
+   :local () 
+   :init (= _dquote_s0_lbrack__rbrack__dquote_ #b000) 
+   :trans (= (bvadd #b001 _dquote_s0_lbrack__rbrack__dquote_) _dquote_s0_lbrack__rbrack__dquote_') 
+   :inv true )
+(check-system main 
+   :input () 
+   :output ((_dquote_s0_lbrack__rbrack__dquote_ (_ BitVec 3))) 
+   :local () 
+   :reachable (rch_1 (not (not (= _dquote_s0_lbrack__rbrack__dquote_ #b111))))
+   :query (qry_rch_1 (rch_1)))

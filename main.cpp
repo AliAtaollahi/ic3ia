@@ -1,8 +1,8 @@
 /** -*- C++ -*-
- * 
+ *
  * entry point of ic3ia
  * author: Alberto Griggio <griggio@fbk.eu>
- * 
+ *
  * This file is part of ic3ia.
  * Copyright (C) 2015-2016 Fondazione Bruno Kessler.
  *
@@ -23,14 +23,18 @@
 #include "api.h"
 #include "invred.h"
 #include "mathsat.h"
+#include "moxi_json_loader.h"
+
 #include <iostream>
 #include <stdlib.h>
 #include <signal.h>
 #include <iomanip>
+#include <vector>
+#include <string>
+#include <cstdio>
 
 
 using namespace ic3ia;
-
 
 Prover *the_prover = NULL;
 
@@ -40,10 +44,14 @@ void handle_interrupt(int signo)
         the_prover->print_stats(std::cout);
     }
     std::cout << "interrupted by signal " << signo << "\nunknown" << std::endl;
-    //_Exit(signo);
     exit(signo);
 }
 
+static bool ends_with(const std::string &s, const std::string &suffix)
+{
+    return s.size() >= suffix.size() &&
+           s.compare(s.size() - suffix.size(), suffix.size(), suffix) == 0;
+}
 
 int main(int argc, const char **argv)
 {
@@ -54,29 +62,54 @@ int main(int argc, const char **argv)
     IC3IA solver(opts);
 
     {
-        msat_term *terms;
-        char **annots;
-        size_t n;
+        msat_term *terms = NULL;
+        char **annots = NULL;
+        size_t n = 0;
 
         struct File {
-            File(): file(stdin) {}
-            ~File()
-            {
+            File(): file(NULL) {}
+            ~File() {
                 if (file && file != stdin) {
                     fclose(file);
                 }
             }
-
             FILE *file;
         };
+
         File f;
-    
-        if (!opts.filename.empty()) {
+
+        bool is_moxi_json = (!opts.filename.empty() &&
+                             (ends_with(opts.filename, ".moxi.json") ||
+                              ends_with(opts.filename, ".moxi-json") ||
+                              ends_with(opts.filename, ".moxijson")));
+
+        if (opts.filename.empty()) {
+            f.file = stdin;
+        } else if (!is_moxi_json) {
             f.file = fopen(opts.filename.c_str(), "r");
+        } else {
+            // MoXI-JSON: convert to SMT-LIB2 annotated list (VMT-style), then parse with MathSAT
+            std::string smt2;
+            std::string err;
+            if (!moxi_json_to_vmt_smt2(opts.filename, smt2, &err)) {
+                std::cout << "ERROR reading MoXI-JSON input: " << err << std::endl;
+                return 1;
+            }
+            f.file = tmpfile();
+            if (!f.file) {
+                std::cout << "ERROR: cannot create temporary file for MoXI-JSON conversion" << std::endl;
+                return 1;
+            }
+            if (!smt2.empty()) {
+                size_t wrote = fwrite(smt2.data(), 1, smt2.size(), f.file);
+                (void)wrote;
+            }
+            rewind(f.file);
         }
 
         if (!f.file) {
-            return false;
+            std::cout << "ERROR: cannot open input" << std::endl;
+            return 1;
         }
 
         int err = msat_annotated_list_from_smtlib2_file(
@@ -85,7 +118,7 @@ int main(int argc, const char **argv)
             std::cout << "ERROR reading input" << std::endl;
             return 1;
         }
-        
+
         if (!solver.read_ts(terms, annots, n)) {
             std::cout << "ERROR reading input" << std::endl;
             return 1;
@@ -113,7 +146,7 @@ int main(int argc, const char **argv)
     signal(SIGINT, handle_interrupt);
 
     solver.result = the_prover->prove();
-    
+
     double witness_check_time = 0;
     if (opts.witness && solver.result != MSAT_UNDEF) {
         bool safe = (solver.result == MSAT_TRUE);

@@ -1,0 +1,13 @@
+(set-logic QF_LIA)
+(define-system main 
+   :input () 
+   :output () 
+   :local ((n Int)) 
+   :init (= n 2147483640) 
+   :trans (= n' (+ n 1)) )
+(check-system main 
+   :input () 
+   :output () 
+   :local ((n Int))  
+   :reachable (rch_1 (> n 2147483647))
+   :query (qry_rch_1 (rch_1)) )
