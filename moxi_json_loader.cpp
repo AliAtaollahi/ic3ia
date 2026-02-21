@@ -230,13 +230,13 @@ static std::string read_all(const std::string &path) {
 }
 
 // -----------------------------
-// MoXI-JSON -> SMT-LIB2 (VMT annotated list)
+// SMT-LIB2 printing helpers
 // -----------------------------
 struct VarInfo {
     std::string name;
-    std::string next_name; // valid only if is_state=true
+    std::string next_name; // state: ".next", input: ".in_next"
     std::string sort;
-    bool is_state = false; // outputs+locals=true, inputs=false
+    bool is_state = false; // output/local=true, input=false
 };
 
 static bool is_simple_smt_ident_char(char c) {
@@ -260,7 +260,15 @@ static std::string smt_ident(const std::string &raw) {
     return raw;
 }
 
-static std::string sort_to_smt2(const JVal &sort_node);
+// IMPORTANT: never quote punctuation operators like =>, <=, +, *, = ...
+static std::string smt_op_token(const std::string &op) {
+    for (char c : op) {
+        if (!is_simple_smt_ident_char(c)) {
+            return op;
+        }
+    }
+    return smt_ident(op);
+}
 
 static std::string sort_to_smt2(const JVal &sort_node) {
     const JVal &id = sort_node.get("identifier");
@@ -320,12 +328,11 @@ static std::map<std::string, VarInfo> collect_vars(const JVal &def_sys_cmd)
             info.name = name;
             info.sort = sort;
             info.is_state = is_state;
-            if (is_state) info.next_name = name + ".next";
+            info.next_name = name + (is_state ? ".next" : ".in_next");
             out[name] = info;
         }
     };
 
-    // Inputs declared, but not state vars
     add_list("input",  false);
     add_list("output", true);
     add_list("local",  true);
@@ -333,9 +340,10 @@ static std::map<std::string, VarInfo> collect_vars(const JVal &def_sys_cmd)
     return out;
 }
 
-static std::string mk_app(const std::string &op, const std::vector<std::string> &args) {
+static std::string mk_app(const std::string &op_tok, const std::vector<std::string> &args) {
+    if (args.empty()) return op_tok;
     std::ostringstream oss;
-    oss << "(" << op;
+    oss << "(" << op_tok;
     for (const auto &a : args) oss << " " << a;
     oss << ")";
     return oss.str();
@@ -344,16 +352,11 @@ static std::string mk_app(const std::string &op, const std::vector<std::string> 
 static std::string term_to_smt2(const JVal &term,
                                 const std::map<std::string, VarInfo> &vars,
                                 bool prime_all,
-                                std::map<std::string, std::string> let_bindings);
-
-static std::string term_to_smt2(const JVal &term,
-                                const std::map<std::string, VarInfo> &vars,
-                                bool prime_all,
                                 std::map<std::string, std::string> let_bindings)
 {
     const JVal &ident = term.get("identifier");
 
-    // let
+    // let (object-form only)
     if (ident.is_obj() && ident.has("symbol") && ident.get("symbol").as_str() == "let") {
         const auto &binders = ident.get("binders").as_arr();
         std::ostringstream binds;
@@ -376,7 +379,7 @@ static std::string term_to_smt2(const JVal &term,
         return "(let " + binds.str() + " " + body + ")";
     }
 
-    // identifier object
+    // identifier object (operator/qualified)
     if (ident.is_obj()) {
         std::string sym = ident.get("symbol").as_str();
 
@@ -423,35 +426,31 @@ static std::string term_to_smt2(const JVal &term,
         if (sym == "rotate_left") return mk_indexed1("rotate_left");
         if (sym == "rotate_right") return mk_indexed1("rotate_right");
 
-        // Generic indexed identifier support:
-        // - term: (_ bv1 32)  OR  (_ bv 1 32)  (JSON varies)
-        // - app : ((_ int2bv 32) x)
+        // FIX: only treat as indexed identifier if indices list is NON-EMPTY
         if (ident.has("indices")) {
             const auto &idx = ident.get("indices").as_arr();
+            if (!idx.empty()) {
+                // BitVec numeral: sym="bv", indices=[val,width]
+                if (sym == "bv" && idx.size() == 2 && args_s.empty()) {
+                    long long val = idx[0].is_num() ? idx[0].as_int() : std::stoll(idx[0].as_str());
+                    long long wid = idx[1].is_num() ? idx[1].as_int() : std::stoll(idx[1].as_str());
+                    std::ostringstream oss;
+                    oss << "(_ bv" << val << " " << wid << ")";
+                    return oss.str();
+                }
 
-            // Handle BitVec numerals encoded as sym="bv", indices=[val,width]
-            if (sym == "bv" && idx.size() == 2 && args_s.empty()) {
-                long long val = idx[0].is_num() ? idx[0].as_int() : std::stoll(idx[0].as_str());
-                long long wid = idx[1].is_num() ? idx[1].as_int() : std::stoll(idx[1].as_str());
-                std::ostringstream oss;
-                oss << "(_ bv" << val << " " << wid << ")";
-                return oss.str();
-            }
+                std::ostringstream idss;
+                idss << "(_ " << sym;
+                for (const auto &iv : idx) {
+                    if (iv.is_num()) idss << " " << iv.as_int();
+                    else if (iv.is_str()) idss << " " << iv.as_str();
+                    else throw std::runtime_error("MoXI-JSON: unsupported index type");
+                }
+                idss << ")";
 
-            std::ostringstream idss;
-            idss << "(_ " << sym;
+                std::string idx_ident = idss.str();
+                if (args_s.empty()) return idx_ident;
 
-            for (const auto &iv : idx) {
-                if (iv.is_num()) idss << " " << iv.as_int();
-                else if (iv.is_str()) idss << " " << iv.as_str();
-                else throw std::runtime_error("MoXI-JSON: unsupported index type");
-            }
-            idss << ")";
-
-            std::string idx_ident = idss.str();
-            if (args_s.empty()) {
-                return idx_ident;
-            } else {
                 std::ostringstream oss;
                 oss << "(" << idx_ident;
                 for (const auto &a : args_s) oss << " " << a;
@@ -461,51 +460,60 @@ static std::string term_to_smt2(const JVal &term,
         }
 
         // Generic operator application
-        return mk_app(sym, args_s);
+        return mk_app(smt_op_token(sym), args_s);
     }
 
     // identifier string
-    if (!ident.is_str()) throw std::runtime_error("MoXI-JSON: identifier must be string or object");
-    std::string id = ident.as_str();
+    if (ident.is_str()) {
+        std::string id = ident.as_str();
 
-    // let binding
-    auto itb = let_bindings.find(id);
-    if (itb != let_bindings.end()) return itb->second;
+        // If args exist and are non-empty, treat as operator application
+        if (term.has("args")) {
+            const auto &args = term.get("args").as_arr();
+            if (!args.empty()) {
+                std::vector<std::string> args_s;
+                args_s.reserve(args.size());
+                for (const auto &a : args) {
+                    args_s.push_back(term_to_smt2(a, vars, prime_all, let_bindings));
+                }
+                return mk_app(smt_op_token(id), args_s);
+            }
+        }
 
-    // booleans
-    if (id == "true" || id == "false") return id;
+        auto itb = let_bindings.find(id);
+        if (itb != let_bindings.end()) return itb->second;
 
-    // bitvector literals like #b...
-    if (!id.empty() && id[0] == '#') return id;
+        if (id == "true" || id == "false") return id;
+        if (!id.empty() && id[0] == '#') return id;
 
-    // primed var: x'
-    if (!id.empty() && id.back() == '\'') {
-        std::string base = id.substr(0, id.size() - 1);
-        auto it = vars.find(base);
-        if (it == vars.end()) throw std::runtime_error("MoXI-JSON: unknown variable (primed): " + base);
-        if (!it->second.is_state) throw std::runtime_error("MoXI-JSON: primed input is not supported: " + base);
-        return smt_ident(it->second.next_name);
+        // primed var: x' (state -> .next, input -> .in_next)
+        if (!id.empty() && id.back() == '\'') {
+            std::string base = id.substr(0, id.size() - 1);
+            auto it = vars.find(base);
+            if (it == vars.end()) throw std::runtime_error("MoXI-JSON: unknown variable (primed): " + base);
+            return smt_ident(it->second.next_name);
+        }
+
+        // numeric literal
+        bool is_num = true;
+        size_t p = 0;
+        if (!id.empty() && (id[0] == '-' || id[0] == '+')) p = 1;
+        if (p >= id.size()) is_num = false;
+        for (; p < id.size(); ++p) {
+            if (!std::isdigit(static_cast<unsigned char>(id[p]))) { is_num = false; break; }
+        }
+        if (is_num) return id;
+
+        auto it = vars.find(id);
+        if (it != vars.end()) {
+            if (prime_all) return smt_ident(it->second.next_name);
+            return smt_ident(it->second.name);
+        }
+
+        return smt_ident(id);
     }
 
-    // numeric literal (often encoded as string)
-    bool is_num = true;
-    size_t p = 0;
-    if (!id.empty() && (id[0] == '-' || id[0] == '+')) p = 1;
-    if (p >= id.size()) is_num = false;
-    for (; p < id.size(); ++p) {
-        if (!std::isdigit(static_cast<unsigned char>(id[p]))) { is_num = false; break; }
-    }
-    if (is_num) return id;
-
-    // variable
-    auto it = vars.find(id);
-    if (it != vars.end()) {
-        if (prime_all && it->second.is_state) return smt_ident(it->second.next_name);
-        return smt_ident(it->second.name);
-    }
-
-    // fallback symbol
-    return smt_ident(id);
+    throw std::runtime_error("MoXI-JSON: identifier must be string or object");
 }
 
 static std::string get_logic(const std::vector<JVal> &cmds) {
@@ -562,19 +570,17 @@ bool moxi_json_to_vmt_smt2(const std::string &json_path,
 
         std::map<std::string, VarInfo> vars = collect_vars(def_sys);
 
-        // Core formulas
-        std::string init_s = term_to_smt2(def_sys.get("init"), vars, /*prime_all=*/false, {});
-        std::string trans_s = term_to_smt2(def_sys.get("trans"), vars, /*prime_all=*/false, {});
-        std::string inv_s = term_to_smt2(def_sys.get("inv"), vars, /*prime_all=*/false, {});
-        std::string inv_next_s = term_to_smt2(def_sys.get("inv"), vars, /*prime_all=*/true, {});
+        std::string init_s = term_to_smt2(def_sys.get("init"),  vars, false, {});
+        std::string trans_s = term_to_smt2(def_sys.get("trans"), vars, false, {});
+        std::string inv_s = term_to_smt2(def_sys.get("inv"),   vars, false, {});
+        std::string inv_next_s = term_to_smt2(def_sys.get("inv"), vars, true, {});
 
-        // Query: OR all referenced reachable formulas; property is NOT(bad)
         std::vector<std::string> qsyms = get_query_formula_symbols(check_sys);
         std::vector<std::string> bad_terms;
         bad_terms.reserve(qsyms.size());
         for (const auto &qs : qsyms) {
             const JVal &rch = find_reachable(check_sys, qs);
-            bad_terms.push_back(term_to_smt2(rch.get("formula"), vars, /*prime_all=*/false, {}));
+            bad_terms.push_back(term_to_smt2(rch.get("formula"), vars, false, {}));
         }
 
         std::string bad_s;
@@ -588,20 +594,17 @@ bool moxi_json_to_vmt_smt2(const std::string &json_path,
         }
         std::string prop_s = "(not " + bad_s + ")";
 
-        // Safer semantics: init ∧ inv, trans ∧ inv ∧ inv'
         std::string init_final = "(and " + init_s + " " + inv_s + ")";
         std::string trans_final = "(and " + trans_s + " " + inv_s + " " + inv_next_s + ")";
 
         std::ostringstream out;
         out << "(set-logic " << logic << ")\n";
 
-        // Declarations: inputs only current; state vars current+next
+        // declare current + a next-like symbol for all vars
         for (const auto &kv : vars) {
             const VarInfo &v = kv.second;
             out << "(declare-const " << smt_ident(v.name) << " " << v.sort << ")\n";
-            if (v.is_state) {
-                out << "(declare-const " << smt_ident(v.next_name) << " " << v.sort << ")\n";
-            }
+            out << "(declare-const " << smt_ident(v.next_name) << " " << v.sort << ")\n";
         }
 
         // :next wrappers only for state vars

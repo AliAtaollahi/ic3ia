@@ -964,12 +964,12 @@ inline void IC3::concretize(Cube &c)
 {
     for (msat_term &t : c)
     {
-        std::cout << "before concretization: " << msat_to_smtlib2_term(ts_.get_env(), t) << std::endl;
+        logger(2) << "before concretization: " << msat_to_smtlib2_term(ts_.get_env(), t) << "\n";
         auto it = lbl2pred_.find(var(t));
 
         assert(it != lbl2pred_.end());
         t = lit(it->second, it->first != t);
-        std::cout << "after concretizations: " << msat_to_smtlib2_term(ts_.get_env(), t) << std::endl;
+        logger(2) << "after concretizations: " << msat_to_smtlib2_term(ts_.get_env(), t) << "\n";
     }
 }
 
